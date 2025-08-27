@@ -11,6 +11,7 @@ Full description at: https://github.com/HackYourFuture/Assignments/tree/main/1-J
 4. Return the new array as the return value of the function.
 5. Run the exercise and verify that it passes all the unit tests.
 ------------------------------------------------------------------------------*/
+
 const employeeRecords = [
   {
     name: 'John',
@@ -28,12 +29,10 @@ const employeeRecords = [
   },
 ];
 
-// ! Function under test
-function filterPrivateData(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+function filterPrivateData(records) {
+  return records.map(({ name, occupation, email }) => ({ name, occupation, email }));
 }
 
-// ! Test functions (plain vanilla JavaScript)
 function test1() {
   console.log('Test 1: filterPrivateData should take one parameter');
   console.assert(filterPrivateData.length === 1);
