@@ -1,0 +1,45 @@
+*** Unit Test Error Report ***
+
+Command failed: npx jest C:/Users/Rimha/Assignments-Cohort54/.dist/1-JavaScript/Week2/unit-tests/ex3-tellFortune.test.js --colors --noStackTrace --json
+ FAIL  .dist/1-JavaScript/Week2/unit-tests/ex3-tellFortune.test.js
+  js-wk2-ex3-tellFortune
+    ✅ should exist and be executable (3 ms)
+    ✅ should have all TODO comments removed (1 ms)
+    ✅ `tellFortune` should not contain unneeded console.log calls (1 ms)
+    ❌ should take four parameters (2 ms)
+    ✅ should call function `selectRandomly` for each of its arguments (1 ms)
+    ✅ `numKids` should be an array initialized with 5 elements (1 ms)
+    ✅ `locations` should be an array initialized with 5 elements (1 ms)
+    ✅ `partnerNames` should be an array initialized with 5 elements
+    ❌ `jobTitles` should be an array initialized with 5 elements (1 ms)
+    ❌ should tell the fortune by randomly selecting array values (4 ms)
+
+  ● js-wk2-ex3-tellFortune › should take four parameters
+
+    expect(received).toHaveLength(expected)
+
+    Expected length:   4
+    Received length:   0
+    Received function: [Function tellFortune]
+
+  ● js-wk2-ex3-tellFortune › `jobTitles` should be an array initialized with 5 elements
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+  ● js-wk2-ex3-tellFortune › should tell the fortune by randomly selecting array values
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "You will be a undefined in Amsterdam, married to Alex with 0 kids."
+    Received: "You will be a developer in Amsterdam, and married to Alex with 0 kids."
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 7 passed, 10 total
+Snapshots:   0 total
+Time:        1.258 s
+Ran all test suites matching /C:\\Users\\Rimha\\Assignments-Cohort54\\.dist\\1-JavaScript\\Week2\\unit-tests\\ex3-tellFortune.test.js/i.
+No linting errors detected.
+No spelling errors detected.
