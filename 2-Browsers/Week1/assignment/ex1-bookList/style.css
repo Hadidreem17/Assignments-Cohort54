@@ -1,1 +1,37 @@
 /* Write your style here */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    display : grid ;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap : 16px;
+
+}
+li {
+    background: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+img {
+   width: 100% ;
+   height: auto ;
+   border -radius: 5px ;
+   display : block ;
+   
+}
+p {
+    margin: 0;
+    padding: 0;
+}
