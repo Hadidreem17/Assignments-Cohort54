@@ -25,6 +25,7 @@ function createBookList(books) {
     p.textContent = `${book.title} - ${book.author} `;
     const img = document.createElement ('img');
     img.src = `https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg`;
+    img.alt = `${book.title} cover`;
     li.appendChild (p);
     li.appendChild (img);
     if (book.alreadyRead) {
