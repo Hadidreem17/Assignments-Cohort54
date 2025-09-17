@@ -19,9 +19,43 @@ Full description at: https://github.com/HackYourFuture/Assignments/tree/main/2-B
    Dancing cat URL:
 
    https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif
------------------------------------------------------------------------------*/
-function catWalk() {
-  // TODO complete this function
-}
+   -----------------------------------------------------------------------------*/
+window.addEventListener('load', function () {
+  const cat = document.querySelector('img');
+  const originalSrc = cat.src || 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
+  const danceSrc = 'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif';
 
-// TODO execute `catWalk` when the browser has completed loading the page
+  cat.style.position = 'absolute';
+  cat.style.left = '0px';
+
+  let hasDanced = false;
+  let walkTimer = null;
+
+  function catWalk() {
+    const x = parseInt(cat.style.left, 10) || 0;
+    const rightEdge = window.innerWidth - cat.width;
+    const mid = rightEdge / 2;
+
+    if (x >= rightEdge) {
+      cat.style.left = '0px';
+      hasDanced = false;
+      return;
+    }
+
+    if (!hasDanced && x >= mid) {
+      hasDanced = true;
+      clearInterval(walkTimer);
+      cat.src = danceSrc;
+      setTimeout(function () {
+        cat.src = originalSrc;
+        walkTimer = setInterval(catWalk, 50);
+      }, 5000);
+      return;
+    }
+
+    cat.style.left = (x + 10) + 'px';
+  }
+
+  walkTimer = setInterval(catWalk, 50);
+});
+
