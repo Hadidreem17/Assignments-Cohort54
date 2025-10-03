@@ -21,12 +21,12 @@ Full description at: https://github.com/HackYourFuture/Assignments/tree/main/1-J
 }
 
 function main() {
-  const myName = "HackYourFuture";
+  const myName = "Rim";
   console.log(giveCompliment(myName));
   console.log(giveCompliment(myName));
   console.log(giveCompliment(myName));
 
-  const yourName = "Amsterdam";
+  const yourName = "Hadid";
   console.log(giveCompliment(yourName));
   console.log(giveCompliment(yourName));
   console.log(giveCompliment(yourName));
