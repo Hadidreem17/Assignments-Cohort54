@@ -1,41 +1,19 @@
 *** Unit Test Error Report ***
 
-Command failed: npx jest C:/Users/Rimha/Assignments-Cohort54/.dist/1-JavaScript/Week2/unit-tests/ex2-dogYears.test.js --colors --noStackTrace --json
- FAIL  .dist/1-JavaScript/Week2/unit-tests/ex2-dogYears.test.js
+ PASS  .dist/1-JavaScript/Week2/unit-tests/ex2-dogYears.test.js
   js-wk2-ex2-dogYears
-    ✅ should exist and be executable (3 ms)
+    ✅ should exist and be executable (1 ms)
     ✅ should have all TODO comments removed
-    ✅ `calculateDogAge` should not contain unneeded console.log calls (2 ms)
+    ✅ `calculateDogAge` should not contain unneeded console.log calls
     ✅ should take a single parameter (1 ms)
-    ❌ should give 7 dog years for 1 human year (3 ms)
-    ❌ should give 14 dog years for 2 human years
-    ❌ give 21 dog years for 3 human years (1 ms)
+    ✅ should give 7 dog years for 1 human year
+    ✅ should give 14 dog years for 2 human years (1 ms)
+    ✅ give 21 dog years for 3 human years
 
-  ● js-wk2-ex2-dogYears › should give 7 dog years for 1 human year
-
-    expect(received).toBe(expected) // Object.is equality
-
-    Expected: "Your doggie is 7 years old in dog years!"
-    Received: 7
-
-  ● js-wk2-ex2-dogYears › should give 14 dog years for 2 human years
-
-    expect(received).toBe(expected) // Object.is equality
-
-    Expected: "Your doggie is 14 years old in dog years!"
-    Received: 14
-
-  ● js-wk2-ex2-dogYears › give 21 dog years for 3 human years
-
-    expect(received).toBe(expected) // Object.is equality
-
-    Expected: "Your doggie is 21 years old in dog years!"
-    Received: 21
-
-Test Suites: 1 failed, 1 total
-Tests:       3 failed, 4 passed, 7 total
+Test Suites: 1 passed, 1 total
+Tests:       7 passed, 7 total
 Snapshots:   0 total
-Time:        1.221 s
+Time:        0.733 s, estimated 1 s
 Ran all test suites matching /C:\\Users\\Rimha\\Assignments-Cohort54\\.dist\\1-JavaScript\\Week2\\unit-tests\\ex2-dogYears.test.js/i.
 No linting errors detected.
 No spelling errors detected.
