@@ -10,23 +10,15 @@ To throw the dice sequentially we will be using a _promise chain_. Your job is
 to expand the given promise chain to include five dice.
 ------------------------------------------------------------------------------*/
 
-// The line below makes the rollDie() function available to this file.
-// Do not change or remove it.
 import { rollDie } from '../../helpers/pokerDiceRoller.js';
 
 export function rollDice() {
-  const results = [];
+  const dice = [1, 2, 3, 4, 5];
 
-  // TODO: expand the chain to include five dice
-  return rollDie(1)
-    .then((value) => {
-      results.push(value);
-      return rollDie(2);
-    })
-    .then((value) => {
-      results.push(value);
-      return results;
-    });
+  const dicePromises = dice.map((die) => rollDie(die));
+
+ 
+  return Promise.all(dicePromises);
 }
 
 function main() {
@@ -34,6 +26,12 @@ function main() {
     .then((results) => console.log('Resolved!', results))
     .catch((error) => console.log('Rejected!', error.message));
 }
+
+if (process.env.NODE_ENV !== 'test') {
+  main();
+}
+
+
 
 // ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {

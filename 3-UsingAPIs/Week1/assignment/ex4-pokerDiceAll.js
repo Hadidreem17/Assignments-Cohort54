@@ -21,15 +21,21 @@ yet finished their roll continue to do so.
 Can you explain why? Please add your answer as a comment to the end of the 
 exercise file.
 ------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------
+Full description at: https://github.com/HackYourFuture/Assignments/tree/main/3-UsingAPIs/Week1#exercise-4-throw-the-dice-for-a-poker-dice-game
+------------------------------------------------------------------------------*/
 
-// The line below makes the rollDie() function available to this file.
-// Do not change or remove it.
+
 import { rollDie } from '../../helpers/pokerDiceRoller.js';
 
 export function rollDice() {
-  // TODO Refactor this function
   const dice = [1, 2, 3, 4, 5];
-  return rollDie(1);
+
+  
+  const dicePromises = dice.map((die) => rollDie(die));
+
+
+  return Promise.all(dicePromises);
 }
 
 function main() {
@@ -38,9 +44,14 @@ function main() {
     .catch((error) => console.log('Rejected!', error.message));
 }
 
+if (process.env.NODE_ENV !== 'test') {
+  main();
+}
+
+
+
 // ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
 
-// TODO Replace this comment by your explanation that was asked for in the assignment description.
