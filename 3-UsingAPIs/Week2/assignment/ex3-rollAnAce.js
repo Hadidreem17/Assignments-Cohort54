@@ -13,12 +13,13 @@ import { rollDie } from '../../helpers/pokerDiceRoller.js';
 /** @import {DieFace} from "../../helpers/pokerDiceRoller.js" */
 
 /**
-
-
+ * Rolls a die until the desired value is rolled.
+ * @param {DieFace} desiredValue
+ * @returns {Promise<DieFace>}
+ */
 export async function rollDieUntil(desiredValue) {
-  let value;
   while (true) {
-    value = await rollDie();
+    const value = await rollDie();
     if (value === desiredValue) {
       return value;
     }
@@ -34,6 +35,7 @@ async function main() {
   }
 }
 
+// ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
