@@ -17,28 +17,51 @@ Full description at: https://github.com/HackYourFuture/Assignments/blob/main/3-U
    should result in a network (DNS) error.
 ------------------------------------------------------------------------------*/
 function requestData(url) {
-  // TODO return a promise using `fetch()`
-}
-
-function renderImage(data) {
-  // TODO render the image to the DOM
-  console.log(data);
-}
-
-function renderError(error) {
-  // TODO render the error to the DOM
-  console.log(error);
-}
-
-// TODO refactor with async/await and try/catch
-function main() {
-  requestData('https://xkcd.now.sh/?comic=latest')
-    .then((data) => {
-      renderImage(data);
+  return fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
     })
-    .catch((error) => {
-      renderError(error);
+    .catch(error => {
+      throw new Error(`Network error: ${error.message}`);
     });
 }
 
+function renderImage(data) {
+  const img = document.createElement('img');
+  img.src = data.img;
+  img.alt = data.title;
+  img.style.maxWidth = '80%';
+  img.style.display = 'block';
+  img.style.margin = '20px auto';
+
+  const title = document.createElement('h2');
+  title.textContent = data.title;
+  title.style.textAlign = 'center';
+
+  document.body.appendChild(title);
+  document.body.appendChild(img);
+}
+
+function renderError(error) {
+  const h1 = document.createElement('h1');
+  h1.textContent = `Something went wrong : ${error.message}`;
+  h1.style.color = 'red';
+  h1.style.textAlign = 'center';
+  document.body.appendChild(h1);
+}
+
+async function main() {
+  const url = 'https://xkcd.now.sh/?comic=latest';
+  try {
+    const data = await requestData(url);
+    renderImage(data);
+  } catch (error) {
+    renderError(error);
+  }
+}
+
 window.addEventListener('load', main);
+

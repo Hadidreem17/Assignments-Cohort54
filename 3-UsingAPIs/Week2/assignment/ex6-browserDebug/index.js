@@ -2,6 +2,7 @@
 Full description at:https://github.com/HackYourFuture/Assignments/blob/main/3-UsingAPIs/Week2/README.md#exercise-6-using-the-browser-debugger
 */
 
+
 async function getData(url) {
   const response = await fetch(url);
   return response.json();
@@ -29,9 +30,22 @@ function addTableRow(table, label, value) {
 function renderLaureate(ul, { knownName, birth, death }) {
   const li = createAndAppend('li', ul);
   const table = createAndAppend('table', li);
-  addTableRow(table, 'Name', knownName.en);
-  addTableRow(table, 'Birth', `${birth.date}, ${birth.place.locationString}`);
-  addTableRow(table, 'Death', `${death.date}, ${death.place.locationString}`);
+
+  const name = knownName?.en ?? '(unknown)';
+  const birthPlace =
+    typeof birth?.place?.locationString === 'string'
+      ? birth.place.locationString
+      : birth?.place?.locationString?.en ?? '—';
+  addTableRow(table, 'Name', name);
+  addTableRow(table, 'Birth', `${birth?.date ?? '—'}, ${birthPlace}`);
+
+  if (death) {
+    const deathPlace =
+      typeof death?.place?.locationString === 'string'
+        ? death.place.locationString
+        : death?.place?.locationString?.en ?? '—';
+    addTableRow(table, 'Death', `${death?.date ?? '—'}, ${deathPlace}`);
+  }
 }
 
 function renderLaureates(laureates) {
@@ -41,7 +55,7 @@ function renderLaureates(laureates) {
 
 async function fetchAndRender() {
   try {
-    const laureates = getData(
+    const { laureates } = await getData(
       'https://api.nobelprize.org/2.0/laureates?birthCountry=Netherlands&format=json&csvLang=en'
     );
     renderLaureates(laureates);

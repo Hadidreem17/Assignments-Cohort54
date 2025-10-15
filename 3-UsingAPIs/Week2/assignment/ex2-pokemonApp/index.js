@@ -21,18 +21,62 @@ Use async/await and try/catch to handle promises.
 Try and avoid using global variables. As much as possible, try and use function 
 parameters and return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
-function fetchData(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+async function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-function fetchAndPopulatePokemons(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+async function fetchAndPopulatePokemons(apiUrl, selectEl) {
+  try {
+    const data = await fetchData(apiUrl);
+    const pokemons = data.results;
+
+    pokemons.forEach(pokemon => {
+      const option = document.createElement('option');
+      option.textContent = pokemon.name;
+      option.value = pokemon.url;
+      selectEl.appendChild(option);
+    });
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-function fetchImage(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+async function fetchImage(detailsUrl, imgEl) {
+  try {
+    const data = await fetchData(detailsUrl);
+    imgEl.src = data.sprites.front_default;
+    imgEl.alt = data.name;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-function main() {
-  // TODO complete this function
+async function main() {
+  const selectEl = document.querySelector('#pokemon-select');
+  const imgEl = document.querySelector('#pokemon-image');
+  const apiUrl = 'https://pokeapi.co/api/v2/pokemon?limit=150';
+
+  try {
+    await fetchAndPopulatePokemons(apiUrl, selectEl);
+    selectEl.addEventListener('change', async e => {
+      const detailsUrl = e.target.value;
+      if (detailsUrl) {
+        await fetchImage(detailsUrl, imgEl);
+      }
+    });
+  } catch (error) {
+    console.error(error);
+  }
 }
+
+window.addEventListener('load', main);
+
