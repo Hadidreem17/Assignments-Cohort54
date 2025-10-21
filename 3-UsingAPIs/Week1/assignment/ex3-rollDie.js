@@ -14,30 +14,23 @@ export function rollDie() {
   return new Promise((resolve, reject) => {
     const randomRollsToDo = Math.floor(Math.random() * 8) + 3;
     console.log(`Die scheduled for ${randomRollsToDo} rolls...`);
-
     const rollOnce = (roll) => {
       const value = Math.floor(Math.random() * 6) + 1;
       console.log(`Die value is now: ${value}`);
-
       if (roll > 6) {
         reject(new Error('Oops... Die rolled off the table.'));
-        return;
       }
-
       if (roll === randomRollsToDo) {
         resolve(value);
         return;
       }
-
       if (roll < randomRollsToDo) {
         setTimeout(() => rollOnce(roll + 1), 500);
       }
     };
-
     rollOnce(1);
   });
 }
-
 function main() {
   rollDie()
     .then((value) => {
@@ -47,14 +40,15 @@ function main() {
       console.log(error.message);
     });
 }
-
-
-
-
-
 // ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
-
-
+/*
+Explanation:
+Removing the `return` after `reject(...)` ensures that `rollOnce` continues to
+schedule and log the remaining rolls (up to the scheduled count), even after the
+promise has been rejected because the die "rolled off the table". This matches
+the exercise requirement: all scheduled rolls should complete, while the promise
+still settles as a rejection at the moment of the "off the table" event.
+*/

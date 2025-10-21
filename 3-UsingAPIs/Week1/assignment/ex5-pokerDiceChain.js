@@ -13,12 +13,29 @@ to expand the given promise chain to include five dice.
 import { rollDie } from '../../helpers/pokerDiceRoller.js';
 
 export function rollDice() {
-  const dice = [1, 2, 3, 4, 5];
+  const results = [];
 
-  const dicePromises = dice.map((die) => rollDie(die));
-
- 
-  return Promise.all(dicePromises);
+  return rollDie(1)
+    .then((value) => {
+      results.push(value);
+      return rollDie(2);
+    })
+    .then((value) => {
+      results.push(value);
+      return rollDie(3);
+    })
+    .then((value) => {
+      results.push(value);
+      return rollDie(4);
+    })
+    .then((value) => {
+      results.push(value);
+      return rollDie(5);
+    })
+    .then((value) => {
+      results.push(value);
+      return results;
+    });
 }
 
 function main() {
@@ -27,13 +44,16 @@ function main() {
     .catch((error) => console.log('Rejected!', error.message));
 }
 
-if (process.env.NODE_ENV !== 'test') {
-  main();
-}
-
-
-
 // ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
+
+/*
+Explanation:
+In this exercise, we use a Promise **chain** instead of `Promise.all()`.
+Each `.then()` waits for the previous die to finish rolling before starting the next one.
+This ensures the dice are rolled sequentially, not in parallel.
+If any die rejects (for example, it falls off the table),
+the chain stops immediately and the final Promise rejects with that error.
+*/
