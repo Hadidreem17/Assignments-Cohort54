@@ -11,7 +11,13 @@
 Test Suites: 1 passed, 1 total
 Tests:       5 passed, 5 total
 Snapshots:   0 total
-Time:        3.583 s
+Time:        3.635 s, estimated 4 s
 Ran all test suites matching /C:\\Users\\Rimha\\Assignments-Cohort54\\.dist\\3-UsingAPIs\\Week2\\unit-tests\\ex2-pokemonApp.test.js/i.
 No linting errors detected.
-No spelling errors detected.
+
+
+*** Spell Checker Report ***
+
+3-UsingAPIs/Week2/assignment/ex2-pokemonApp/index.js:33:39 - Unknown word (Pokémons)
+3-UsingAPIs/Week2/assignment/ex2-pokemonApp/index.js:37:31 - Unknown word (Pokémons)
+3-UsingAPIs/Week2/assignment/ex2-pokemonApp/index.js:101:37 - Unknown word (pokémons)

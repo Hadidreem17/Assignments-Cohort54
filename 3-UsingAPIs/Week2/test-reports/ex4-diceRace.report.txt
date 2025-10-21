@@ -4,16 +4,16 @@
   api-wk2-ex4-diceRace
     ✅ should exist and be executable (2 ms)
     ✅ should have all TODO comments removed (1 ms)
-    ✅ `rollDice` should not contain unneeded console.log calls
-    ✅ should use `dice.map()` (1 ms)
+    ✅ `rollDice` should not contain unneeded console.log calls (1 ms)
+    ✅ should use `dice.map()`
     ✅ should use `Promise.race()`
-    ✅ should resolve as soon as a die settles successfully (11 ms)
-    ✅ should reject with an Error as soon as a die rolls off the table (69 ms)
+    ✅ should resolve as soon as a die settles successfully (12 ms)
+    ✅ should reject with an Error as soon as a die rolls off the table (71 ms)
 
 Test Suites: 1 passed, 1 total
 Tests:       7 passed, 7 total
 Snapshots:   0 total
-Time:        0.876 s
+Time:        0.875 s, estimated 1 s
 Ran all test suites matching /C:\\Users\\Rimha\\Assignments-Cohort54\\.dist\\3-UsingAPIs\\Week2\\unit-tests\\ex4-diceRace.test.js/i.
 No linting errors detected.
 No spelling errors detected.

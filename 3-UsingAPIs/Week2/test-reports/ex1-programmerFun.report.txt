@@ -2,7 +2,7 @@
 
  PASS  .dist/3-UsingAPIs/Week2/unit-tests/ex1-programmerFun.test.js
   api-wk2-ex1-programmerFun
-    ✅ HTML should be syntactically valid (130 ms)
+    ✅ HTML should be syntactically valid (134 ms)
     ✅ should have all TODO comments removed
     ✅ should use `fetch()`
     ✅ should use async/wait
@@ -11,7 +11,7 @@
 Test Suites: 1 passed, 1 total
 Tests:       5 passed, 5 total
 Snapshots:   0 total
-Time:        3.652 s, estimated 13 s
+Time:        4.131 s
 Ran all test suites matching /C:\\Users\\Rimha\\Assignments-Cohort54\\.dist\\3-UsingAPIs\\Week2\\unit-tests\\ex1-programmerFun.test.js/i.
 No linting errors detected.
 No spelling errors detected.

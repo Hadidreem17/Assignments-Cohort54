@@ -13,10 +13,9 @@ Full description at: https://github.com/HackYourFuture/Assignments/blob/main/3-U
 import { rollDie } from '../../helpers/pokerDiceRoller.js';
 /** @import {DieFace} from "../../helpers/pokerDiceRoller.js" */
 
-
 export async function rollDice() {
   const dice = [1, 2, 3, 4, 5];
-  const dicePromises = dice.map(() => rollDie());
+  const dicePromises = dice.map((die) => rollDie(die));
   const winner = await Promise.race(dicePromises);
   return winner;
 }
@@ -39,4 +38,3 @@ Explanation:
 Some dice keep rolling because Promise.race() only stops for the first finished promise.
 The other promises keep running in the background.
 */
-

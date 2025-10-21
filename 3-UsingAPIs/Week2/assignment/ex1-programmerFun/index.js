@@ -17,16 +17,12 @@ Full description at: https://github.com/HackYourFuture/Assignments/blob/main/3-U
    should result in a network (DNS) error.
 ------------------------------------------------------------------------------*/
 function requestData(url) {
-  return fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .catch(error => {
-      throw new Error(`Network error: ${error.message}`);
-    });
+  return fetch(url).then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  });
 }
 
 function renderImage(data) {
@@ -64,4 +60,3 @@ async function main() {
 }
 
 window.addEventListener('load', main);
-
